@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-example-deployment
+spec:
+  replicas: 2
+  selector: 
+    matchLabels:
+        app: node-example
+  template:
+    metadata:
+      labels:
+        app: node-example
+    spec:
+      containers:
+      - name: node-example
+        image: pardeep889/node-example:release2
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
